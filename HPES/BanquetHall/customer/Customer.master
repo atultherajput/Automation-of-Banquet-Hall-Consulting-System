@@ -1,0 +1,135 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Customer.master.cs" Inherits="customer_Customer" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+    <!--<link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />--->
+    
+    <link href="/css/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 99%;
+            margin:auto;
+        }
+        .auto-style2 {
+            height: 170px;
+        }
+        .auto-style4 {
+            height: 170px;
+            width: 432px;
+        }
+        .auto-style5 {
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table class="auto-style1">
+            <tr>
+                <td class="auto-style4">
+                    <asp:Image ID="Image1" runat="server" Height="170px" ImageUrl="~/images/logo.png" />
+                </td>
+                <td align ="right" valign="bottom" class="auto-style2">
+                    Welcome
+                   <a href="../customer/Customer.aspx"> <asp:Label ID="Label1" runat="server" Text= style="font-weight: 700" ForeColor="Black"></asp:Label></a>
+                &nbsp;<asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" Font-Underline="False">Sign Out</asp:LinkButton>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Menu ID="Menu1" runat="server" BackColor="#663300" DynamicHorizontalOffset="2" Font-Names="Yu Gothic" Font-Size="Large" ForeColor="White" Orientation="Horizontal" StaticSubMenuIndent="10px" BorderColor="Black" CssClass="navbar" Font-Bold="True" Font-Overline="False" Height="100%" OnMenuItemClick="Menu1_MenuItemClick" Width="100%">
+                        <DynamicHoverStyle BackColor="#663300" ForeColor="#996633" Font-Bold="True" Font-Overline="True" Font-Underline="True" />
+                        <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                        <DynamicMenuStyle BackColor="#663300" />
+                        <DynamicSelectedStyle BackColor="#663300" Font-Overline="True" Font-Underline="True" ForeColor="White" />
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Value="Home"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="#" Text="Our Halls" Value="Our Halls">
+                                <asp:MenuItem NavigateUrl="~/OurHalls/DeLuxeBallroom.aspx" Text="De Luxe Ballroom" Value="De Luxe Ballroom"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/OurHalls/DeLuxeLounge.aspx" Text="De Luxe Lounge" Value="De Luxe Lounge"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/OurHalls/DeLuxeRestaurant.aspx" Text="De Luxe Restaurant" Value="De Luxe Restaurant"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/OurHalls/DeLuxeHall.aspx" Text="De Luxe Hall" Value="De Luxe Hall"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Book A Hall" Value="Book A Hall"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="#" Text="Events We Host" Value="Events We Host">
+                                <asp:MenuItem NavigateUrl="~/EventsWeHost/Weddings.aspx" Text="Weddings" Value="Weddings"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/EventsWeHost/CorporateEvents.aspx" Text="Corporate Events" Value="Corporate Events"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/EventsWeHost/SocialEvents.aspx" Text="Social Events" Value="Social Events"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/EventsWeHost/BirthdayParties.aspx" Text="Birthday Parties" Value="Birthday Parties"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="#" Text="Services" Value="Services">
+                                <asp:MenuItem NavigateUrl="~/Services/AudioSystem.aspx" Text="Audio System" Value="Audio System"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Services/DJSystem.aspx" Text="DJ System" Value="DJ System"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Services/LighteningSystem.aspx" Text="Lightening System" Value="Lightening System"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Services/VideoRecording.aspx" Text="Video Recording" Value="Video Recording"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ContactUs.aspx" Text="Contact Us" Value="Contact Us"></asp:MenuItem>
+                        </Items>
+                        <StaticHoverStyle BackColor="#663300" ForeColor="#996633" Font-Overline="True" Font-Underline="True" />
+                        <StaticMenuItemStyle HorizontalPadding="50px" VerticalPadding="20px" BackColor="#663300" ForeColor="White" ItemSpacing="10px" />
+                        <StaticSelectedStyle BackColor="#663300" ForeColor="White" />
+                        <StaticItemTemplate>
+                            <%# Eval("Text") %>
+                        </StaticItemTemplate>
+                    </asp:Menu>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Menu ID="Menu2" runat="server" BackColor="#F7F6F3" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#7C6F57" Orientation="Horizontal" StaticSubMenuIndent="10px">
+                        <DynamicHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                        <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                        <DynamicMenuStyle BackColor="#F7F6F3" />
+                        <DynamicSelectedStyle BackColor="#5D7B9D" />
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/customer/CheckHall.aspx" Text="Check Hall Availability And Book Hall" Value="Check Hall Availability"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/customer/ViewMyBooking.aspx" Text="View Bookings" Value="View Bookings">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/customer/Customer.aspx" Text="My Profile" Value="My Profile"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="#" Text="Help" Value="Help">
+                                <asp:MenuItem NavigateUrl="~/PaymentPolicy.aspx" Text="Payment Policy" Value="Payment Policy"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/CancelationPolicy.aspx" Text="Cancelation Policy" Value="Cancelation Policy"></asp:MenuItem>
+                            </asp:MenuItem>
+                        </Items>
+                        <StaticHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                        <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                        <StaticSelectedStyle BackColor="#5D7B9D" />
+                    </asp:Menu>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style5" colspan="2">
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                        <p>
+                            &nbsp;</p>
+        
+        </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://www.facebook.com/atultherajput"><asp:Image ID="Image2" runat="server" Height="50px" ImageUrl="~/images/facebook.png" Width="50px" /></a>
+&nbsp;<a href="https://twitter.com/atultherajput"><asp:Image ID="Image3" runat="server" Height="50px" ImageUrl="~/images/twitter.png" Width="50px" /></a>
+                </td>
+                <td>&copy DE LUXE BANQUET HALL, <% =DateTime.Now.Year  %>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+
+    <!--<script src="/Scripts/jquery-3.1.0.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>-->
+
+</body>
+</html>

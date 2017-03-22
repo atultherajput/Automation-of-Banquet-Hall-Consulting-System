@@ -1,0 +1,107 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+
+    <link href="/css/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 99%;
+            margin:auto;
+        }
+        .auto-style2 {
+            height: 170px;
+        }
+        .auto-style4 {
+            height: 170px;
+            width: 432px;
+        }
+        .auto-style5 {
+            height: 20px;
+        }
+    </style>
+    <!-- Start WOWSlider.com HEAD section -->
+<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+<script type="text/javascript" src="engine1/jquery.js"></script>
+<!-- End WOWSlider.com HEAD section -->
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table class="auto-style1">
+            <tr>
+                <td class="auto-style4">
+                    <asp:Image ID="Image1" runat="server" Height="170px" ImageUrl="~/images/logo.png" />
+                </td>
+                <td align ="right" valign="bottom" class="auto-style2">
+                    Welcome
+                    <asp:Label ID="Label1" runat="server" Text="Guest"  style="font-weight: 700"></asp:Label>
+                    <asp:LinkButton ID="LinkButton2" runat="server" Visible="False"></asp:LinkButton>
+                &nbsp;<asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Register/Sign In</asp:LinkButton>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Menu ID="Menu1" runat="server" BackColor="#663300" DynamicHorizontalOffset="2" Font-Names="Yu Gothic" Font-Size="Large" ForeColor="White" Orientation="Horizontal" StaticSubMenuIndent="10px" BorderColor="Black" CssClass="navbar" Font-Bold="True" Font-Overline="False" Height="100%" OnMenuItemClick="Menu1_MenuItemClick" Width="100%">
+                        <DynamicHoverStyle BackColor="#663300" ForeColor="#996633" Font-Bold="True" Font-Overline="True" Font-Underline="True" />
+                        <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                        <DynamicMenuStyle BackColor="#663300" />
+                        <DynamicSelectedStyle BackColor="#663300" Font-Overline="True" Font-Underline="True" ForeColor="White" />
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Value="Home"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/OurHalls/Default.aspx" Text="Our Halls" Value="Our Halls">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Book A Hall" Value="Book A Hall"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/EventsWeHost/Default.aspx" Text="Events We Host" Value="Events We Host">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Services/Default.aspx" Text="Services" Value="Services">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ContactUs.aspx" Text="Contact Us" Value="Contact Us"></asp:MenuItem>
+                        </Items>
+                        <StaticHoverStyle BackColor="#663300" ForeColor="#996633" Font-Overline="True" Font-Underline="True" />
+                        <StaticMenuItemStyle HorizontalPadding="50px" VerticalPadding="20px" BackColor="#663300" ForeColor="White" ItemSpacing="10px" />
+                        <StaticSelectedStyle BackColor="#663300" ForeColor="White" />
+                        <StaticItemTemplate>
+                            <%# Eval("Text") %>
+                        </StaticItemTemplate>
+                    </asp:Menu>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style5" colspan="2">
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://www.facebook.com/atultherajput"><asp:Image ID="Image2" runat="server" Height="50px" ImageUrl="~/images/facebook.png" Width="50px" /></a>
+&nbsp;<a href="https://twitter.com/atultherajput"><asp:Image ID="Image3" runat="server" Height="50px" ImageUrl="~/images/twitter.png" Width="50px" /></a>
+                </td>
+                <td>&copy DE LUXE BANQUET HALL, <% =DateTime.Now.Year  %>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+
+    <script src="/Scripts/jquery-3.1.0.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+
+</body>
+</html>
